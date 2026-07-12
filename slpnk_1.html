@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Solarpunk Voyage – Book Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #05060a;
+      --fg: #f4f4f4;
+      --accent: #ffd46b;
+      --accent2: #9fd8a3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow: hidden;
+    }
+
+    /* Book container: horizontal swipe, snap per page */
+    .book {
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .page {
+      scroll-snap-align: start;
+      flex: 0 0 100vw;
+      height: 100vh;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    header.main-title {
+      position: fixed;
+      top: 8px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    header.main-title h1 {
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    header.main-title h2 {
+      font-size: 0.8rem;
+      color: var(--accent2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .page-inner {
+      margin-top: 48px; /* leave space for fixed header */
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .page-title h3 {
+      font-size: 1rem;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .page-title p {
+      font-size: 0.8rem;
+      color: #aaaaaa;
+      margin-top: 4px;
+    }
+
+    .comic-image {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+      margin-top: 8px;
+      background: #111;
+      object-fit: contain;
+    }
+
+    .caption {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #d0d0d0;
+      margin-top: 10px;
+    }
+
+    .caption strong {
+      color: var(--accent);
+    }
+
+    /* Simple page indicator dots */
+    .pager {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .pager span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin: 0 4px;
+      background: #444;
+    }
+
+    .pager span.active {
+      background: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed title across all pages -->
+  <header class="main-title">
+    <h1>Solarpunk Voyage</h1>
+    <h2>Geräusch des öffnens einer Coladose.</h2>
+  </header>
+
+  <!-- Swipeable book -->
+  <div class="book" id="book">
+    <!-- Page 1 -->
+    <section class="page" data-page="1">gerä
+      <div class="page-inner">
+        <div class="page-title">
+          <h3>Page 1 – Leaving the Old World</h3>
+          <p>From decay to renewal.</p>
+        </div>
+        <!-- Replace src with your actual Page 1 image -->
+        <img
+          class="comic-image"
+          src="C:\Users\User\Desktop\slpnk_1\page_1.png.png"
+          alt="Pip leaving the old industrial world in a nutshell boat toward a solarpunk landscape"
+        />
+        <p class="caption">
+          <strong>Pip</strong> stands on a rooftop garden above a crumbling industrial city, then sails his nutshell boat
+          across polluted water toward a lush solarpunk landscape. A human repairing cracked solar panels shows him that
+          <strong>hope is fragile, but rebuildable through care and vision</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Page 2 -->
+    <section class="page" data-page="2">
+      <div class="page-inner">
+        <div class="page-title">
+          <h3>Page 2 – The Contrast</h3>
+          <p>Cyberpunk vs. Solarpunk.</p>
+        </div>
+        <!-- Replace src with your actual Page 2 image -->
+        <img
+          class="comic-image"
+          src="C:\Users\User\Desktop\slpnk_1\page_2.png.png"
+          alt="Pip sailing between a dark cyberpunk city and a bright solarpunk landscape"
+        />
+        <p class="caption">
+          Pip sails between two worlds: on the left, a neon‑soaked <strong>Cyberpunk</strong> city ruled by “MEGA CORP”,
+          robotic enforcers, and toxic air; on the right, a sunlit <strong>Solarpunk</strong> community of gardens,
+          wind turbines, and domed greenhouses. He reflects: “Technology reflects our choices. What we build depends on
+          what we value.” The final panel reminds us: <strong>the current we steer is ours alone</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Page 3 -->
+    <section class="page" data-page="3">
+      <div class="page-inner">
+        <div class="page-title">
+          <h3>Page 3 – Philosophy & Ecology</h3>
+          <p>Permaculture and biomimicry.</p>
+        </div>
+        <!-- Replace src with your actual Page 3 image -->
+        <img
+          class="comic-image"
+          src="C:\Users\User\Desktop\slpnk_1\page_3.png.png"
+          alt="Pip teaching permaculture in a reclaimed greenhouse with vertical gardens"
+        />
+        <p class="caption">
+          In a reclaimed greenhouse, Pip teaches adults that <strong>permaculture heals the land and feeds the soul</strong>.
+          Vertical gardens, bioluminescent vines, beehives, and rainwater systems surround them as he says:
+          “We stopped trying to conquer nature… and started learning from her.” The page closes on the idea that
+          <strong>everything is connected</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Page 4 -->
+    <section class="page" data-page="4">
+      <div class="page-inner">
+        <div class="page-title">
+          <h3>Page 4 – Workshop Resilience</h3>
+          <p>Communities building their own future.</p>
+        </div>
+        <!-- Replace src with your actual Page 4 image -->
+        <img
+          class="comic-image"
+          src="C:\Users\User\Desktop\slpnk_1\page_4.png.png"
+          alt="Pip and humans working in a warm solarpunk workshop building solar carts and microgrids"
+        />
+        <p class="caption">
+          In a sun‑drenched workshop, Pip and the crew assemble solar carts and decentralized microgrids. Hands solder
+          wires, weave biodegradable panels, and plant seedlings. Pip says, “Resilience isn’t built in factories—it’s
+          built in communities.” At sunset, they stand before their self‑sufficient village, knowing
+          <strong>they power their own future together</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Page 5 -->
+    <section class="page" data-page="5">
+      <div class="page-inner">
+        <div class="page-title">
+          <h3>Page 5 – The Vision</h3>
+          <p>Designing tomorrow.</p>
+        </div>
+        <!-- Replace src with your actual Page 5 image -->
+        <img
+          class="comic-image"
+          src="C:\Users\User\Desktop\slpnk_1\page_5.png.png"
+          alt="Pip resting under ivy in a thriving solarpunk city at sunrise"
+        />
+        <p class="caption">
+          Dawn rises over a thriving solarpunk city of floating gardens, wind turbines, and gentle waterways. Pip rests
+          under ivy, watching people tend ecosystems and technology side by side. He whispers,
+          “Tomorrow isn’t promised—it’s designed.” The book closes on a quiet truth:
+          <strong>the light we cultivate is the world we inherit</strong>.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Simple page indicator -->
+  <div class="pager" id="pager">
+    <span data-dot="1" class="active"></span>
+    <span data-dot="2"></span>
+    <span data-dot="3"></span>
+    <span data-dot="4"></span>
+    <span data-dot="5"></span>
+  </div>
+
+  <script>
+    // Update dots based on scroll position
+    const book = document.getElementById("book");
+    const dots = document.querySelectorAll("#pager span");
+
+    function updateDots() {
+      const pageWidth = window.innerWidth;
+      const index = Math.round(book.scrollLeft / pageWidth) + 1;
+      dots.forEach(dot => {
+        dot.classList.toggle("active", Number(dot.dataset.dot) === index);
+      });
+    }
+
+    book.addEventListener("scroll", () => {
+      window.requestAnimationFrame(updateDots);
+    });
+
+    // Tap dots to jump to page (optional)
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        const pageIndex = Number(dot.dataset.dot) - 1;
+        book.scrollTo({
+          left: pageIndex * window.innerWidth,
+          behavior: "smooth"
+        });
+      });
+    });
+
+    window.addEventListener("resize", updateDots);
+    updateDots();
+  </script>
+</body>
+</html>

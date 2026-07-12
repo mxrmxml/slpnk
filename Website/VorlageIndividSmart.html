@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Visitenkarte Neon Trace — COMBINED FORCES</title>
+<meta name="theme-color" content="#02060a">
+<style>
+  :root{
+    --bg:#02060a;
+    --panel:#07121a;
+    --neon:#00ffd5;
+    --muted:#8aa6ad;
+    --card-w:420px;
+    --radius:12px;
+    --focus: 0 0 0 3px rgba(0,255,213,0.12);
+  }
+
+  /* Base */
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:#e8fbf7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  a{color:inherit}
+  .page{min-height:100%;display:flex;align-items:center;justify-content:center;padding:28px;box-sizing:border-box}
+
+  /* Card */
+  .card{
+    width:100%;
+    max-width:var(--card-w);
+    padding:22px;
+    border-radius:var(--radius);
+    background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+    box-shadow:0 12px 40px rgba(0,0,0,0.7);
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(0,255,213,0.06);
+    box-sizing:border-box;
+  }
+
+  /* SVG trace background */
+  .trace{position:absolute;inset:0;pointer-events:none;z-index:0}
+  .content{position:relative;z-index:1}
+
+  /* Header */
+  .name{font-size:20px;margin:0;line-height:1.1}
+  .desc{color:var(--muted);margin:6px 0 14px;font-size:13px}
+
+  /* Links / navigation */
+  .links{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  .link{
+    padding:12px 14px;
+    border-radius:10px;
+    background:rgba(0,0,0,0.25);
+    color:var(--neon);
+    text-decoration:none;
+    border:1px solid rgba(0,255,213,0.06);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:transform .16s,box-shadow .16s;
+    font-size:15px;
+    min-height:48px; /* touch target */
+  }
+  .link:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,255,213,0.06)}
+  .link:active{transform:translateY(-1px)}
+  .link:focus{outline:none;box-shadow:var(--focus)}
+  .link .label{font-weight:700}
+  .link .meta{color:var(--muted);font-size:13px}
+
+  /* Footer / impressum button */
+  .footer-note{margin-top:12px;color:var(--muted);font-size:12px;display:flex;flex-direction:column;gap:6px}
+  .impressum-btn{
+    margin-top:14px;padding:10px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.03);
+    color:var(--muted);text-decoration:none;display:inline-block;font-size:14px;
+  }
+  .impressum-btn:focus{outline:none;box-shadow:var(--focus)}
+
+  /* Impressum section */
+  #impressum{
+    max-width:900px;margin:18px auto;padding:18px;color:#dfeff0;background:rgba(255,255,255,0.02);border-radius:10px;box-sizing:border-box;
+  }
+  #impressum h4{margin-top:0}
+  #impressum a{color:var(--neon);text-decoration:underline}
+
+  /* Accessibility: skip link */
+  .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .skip-link:focus{position:static;width:auto;height:auto;padding:8px 12px;margin-bottom:12px;background:#001a1a;color:#eafff7;border-radius:6px;left:auto}
+
+  /* Responsive layout tweaks */
+  @media (min-width:900px){
+    .page{padding:48px}
+    .card{padding:28px}
+  }
+
+  @media (max-width:460px){
+    :root{--card-w:92vw}
+    .link{padding:14px 16px;font-size:16px;min-height:56px;border-radius:12px}
+    .name{font-size:18px}
+    .desc{font-size:14px}
+    .impressum-btn{width:100%;text-align:center}
+    #impressum{margin:12px;padding:14
